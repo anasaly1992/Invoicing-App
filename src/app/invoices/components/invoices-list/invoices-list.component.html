@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="flex justify-content align-items">
+        <h1>Invoices</h1>
+        <button class="primary-btn" (click)="addNewInvoice()">Add New Invoice</button>
+    </div>
+    <table class="table table-bordered" formArrayName="details">
+
+        <thead class="bg-primary text-white">
+            <tr>
+                <th>Items</th>
+                <th>Total Price</th>
+                <th>Payment status</th>
+                <th>Payment type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of invoicesList;  let i = index">
+                <td>
+                    {{ item.items }}
+                </td>
+                <td>
+                    {{ item.totalPrice }}
+                </td>
+                <td>
+                    {{ item.paymentStatus }}
+                </td>
+                <td>
+                    {{ item.paymentTypes }}
+                </td>
+                <td>
+                    <button [disabled]="role !== 'Admin'" class="secondry-btn mx-1" (click)="editInvoice(i)"><i
+                            class="pi pi-file-edit"></i></button>
+                    <button [disabled]="role !== 'Admin'" class="secondry-btn mx-1" (click)="deleteInvoice(i)"><i
+                            class="pi pi-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="invoicesList.length === 0" class="no-data">No Data To Display</div>
+</div>

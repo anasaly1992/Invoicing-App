@@ -1,0 +1,62 @@
+.justify-content {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.primary-btn {
+    height: 50px;
+    width: 10rem;
+    background: #47007e;
+    color: #fff;
+    border: #fff;
+    outline: #fff;
+}
+
+.secondry-btn {
+    background: #47007e;
+    color: #fff;
+    border: #fff;
+    outline: #fff;
+}
+
+table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+th {
+    width: 18rem;
+    height: 2.2rem;
+    background: #47007e;
+    color: #fff;
+}
+
+td {
+    text-align: center;
+    border: 1px solid gray;
+    padding: .5rem;
+}
+
+input {
+    height: 2.2rem;
+    width: 100%;
+}
+
+select {
+    height: 2.2rem;
+    width: 10rem;
+    width: 100%;
+}
+
+.no-data {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+.mx-1 {
+    margin-inline: 1rem;
+}

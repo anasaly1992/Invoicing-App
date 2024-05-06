@@ -1,0 +1,53 @@
+<form class="container" [formGroup]="invoiceform">
+    <div class="card">
+        <h1>Create Invoice</h1>
+        <div class="card">
+            <table class="table table-bordered" formArrayName="details">
+
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Item</th>
+                        <th>quantity</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of invproducts.controls;let i=index" [formGroupName]="i">
+                        <td>
+                            <input type="text" formControlName="item" />
+                        </td>
+                        <td>
+                            <input formControlName="qty" inputId="stacked" type="number" appendTo="body" />
+                        </td>
+                        <td>
+                            <input formControlName="price" type="number" inputId="stacked" mode="currency"
+                                currency="USD" />
+                        </td>
+                        <td>
+                            <i class="pi pi-trash" (click)="Removeproduct(i)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+                <i class="pi pi-plus-circle rem-2" (click)="addNewRow()"></i>
+            </table>
+        </div>
+        <hr>
+        <div class="flex align-items mt-2 mb-2">
+            <select class="form-control" formControlName="paymentStatus">
+                <option value="" disabled selected>Select your payment status</option>
+                <option *ngFor="let item of paymentStatus" [value]="item.code">
+                    {{item.name}}
+                </option>
+            </select>
+            <select class="form-control" formControlName="paymentTypes">
+                <option value="" disabled selected>Select your payment type</option>
+                <option *ngFor="let item of paymentTypes" [value]="item.code">
+                    {{item.name}}
+                </option>
+            </select>
+            <br>
+        </div>
+        <p-button (click)="createInvoice()" [disabled]="">{{id ? 'Update Invoice': 'Create Invoice'}}</p-button>
+    </div>
+</form>
